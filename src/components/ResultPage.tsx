@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import type { CharacterData } from '../data/characters';
 import ShareImage from './ShareImage';
+import x1rrySvg from '../assets/x1rry.svg';
 
 interface ResultPageProps {
   name: string;
@@ -206,10 +207,13 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
         <div className="flex-[1]" />
 
         {/* Bottom decorative */}
-        <div className="flex items-center gap-3 pb-4">
-          <div className="w-6 h-px bg-gold/20" />
-          <span className="text-gold/20 text-xs tracking-widest">2026 丙午马年</span>
-          <div className="w-6 h-px bg-gold/20" />
+        <div className="flex flex-col items-center gap-3 pb-4">
+          <img src={x1rrySvg} alt="小红书 @x1rry" style={{ height: 20, opacity: 0.3 }} />
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-px bg-gold/20" />
+            <span className="text-gold/20 text-xs tracking-widest">2026 丙午马年</span>
+            <div className="w-6 h-px bg-gold/20" />
+          </div>
         </div>
       </div>
 
