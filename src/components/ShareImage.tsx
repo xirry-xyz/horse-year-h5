@@ -91,8 +91,10 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
         {/* Category badge */}
         <div
           style={{
-            display: 'inline-block',
-            padding: '3px 14px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '5px 16px',
             borderRadius: 9999,
             fontSize: 11,
             fontWeight: 700,
