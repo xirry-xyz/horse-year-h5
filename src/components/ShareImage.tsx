@@ -186,7 +186,7 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
           }}
         >
           <QRCodeSVG
-            value="https://horse-year-h5.vercel.app"
+            value="https://zi.xirry.xyz"
             size={48}
             bgColor="#ffffff"
             fgColor="#1a0a0a"
