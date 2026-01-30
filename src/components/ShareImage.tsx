@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { QRCodeSVG } from 'qrcode.react';
 import type { CharacterData } from '../data/characters';
 
 interface ShareImageProps {
@@ -12,13 +13,12 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
       ref={ref}
       style={{
         width: 375,
-        height: 500,
+        height: 660,
         background: 'radial-gradient(ellipse at top, #3d1520 0%, #1a0a0a 50%, #0d0505 100%)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'flex-start',
-        padding: '30px 24px 20px',
+        padding: '28px 24px 24px',
         position: 'relative',
         overflow: 'hidden',
         fontFamily: '"Noto Serif SC", "PingFang SC", serif',
@@ -26,10 +26,10 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
       }}
     >
       {/* Corner decorations */}
-      <div style={{ position: 'absolute', top: 12, left: 12, width: 24, height: 24, borderTop: '2px solid rgba(212,168,83,0.3)', borderLeft: '2px solid rgba(212,168,83,0.3)' }} />
-      <div style={{ position: 'absolute', top: 12, right: 12, width: 24, height: 24, borderTop: '2px solid rgba(212,168,83,0.3)', borderRight: '2px solid rgba(212,168,83,0.3)' }} />
-      <div style={{ position: 'absolute', bottom: 12, left: 12, width: 24, height: 24, borderBottom: '2px solid rgba(212,168,83,0.3)', borderLeft: '2px solid rgba(212,168,83,0.3)' }} />
-      <div style={{ position: 'absolute', bottom: 12, right: 12, width: 24, height: 24, borderBottom: '2px solid rgba(212,168,83,0.3)', borderRight: '2px solid rgba(212,168,83,0.3)' }} />
+      <div style={{ position: 'absolute', top: 10, left: 10, width: 20, height: 20, borderTop: '2px solid rgba(212,168,83,0.3)', borderLeft: '2px solid rgba(212,168,83,0.3)' }} />
+      <div style={{ position: 'absolute', top: 10, right: 10, width: 20, height: 20, borderTop: '2px solid rgba(212,168,83,0.3)', borderRight: '2px solid rgba(212,168,83,0.3)' }} />
+      <div style={{ position: 'absolute', bottom: 10, left: 10, width: 20, height: 20, borderBottom: '2px solid rgba(212,168,83,0.3)', borderLeft: '2px solid rgba(212,168,83,0.3)' }} />
+      <div style={{ position: 'absolute', bottom: 10, right: 10, width: 20, height: 20, borderBottom: '2px solid rgba(212,168,83,0.3)', borderRight: '2px solid rgba(212,168,83,0.3)' }} />
 
       {/* Ink wash background effect */}
       <div
@@ -46,21 +46,21 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
       />
 
       {/* Year tag */}
-      <div style={{ fontSize: 10, letterSpacing: '0.4em', color: 'rgba(212,168,83,0.5)', marginBottom: 8 }}>
+      <div style={{ fontSize: 10, letterSpacing: '0.4em', color: 'rgba(212,168,83,0.5)', marginBottom: 6 }}>
         —— 2026 马年 ——
       </div>
 
       {/* Title */}
       <div
         style={{
-          fontSize: 18,
+          fontSize: 16,
           fontWeight: 700,
           letterSpacing: '0.1em',
           background: 'linear-gradient(135deg, #d4a853, #f0d68a, #d4a853)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
-          marginBottom: 16,
+          marginBottom: 12,
         }}
       >
         {name} 的马年代表字
@@ -69,14 +69,14 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
       {/* Main character */}
       <div
         style={{
-          fontSize: 110,
+          fontSize: 100,
           fontWeight: 900,
           lineHeight: 1,
           background: 'linear-gradient(180deg, #f0d68a 0%, #d4a853 40%, #b8860b 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
-          marginBottom: 10,
+          marginBottom: 8,
           filter: 'drop-shadow(0 0 20px rgba(212,168,83,0.3))',
         }}
       >
@@ -87,9 +87,9 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
       <div
         style={{
           display: 'inline-block',
-          padding: '4px 16px',
+          padding: '3px 14px',
           borderRadius: 20,
-          fontSize: 12,
+          fontSize: 11,
           fontWeight: 700,
           letterSpacing: '0.2em',
           background: 'rgba(212,168,83,0.1)',
@@ -104,7 +104,7 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
       {/* Description */}
       <div
         style={{
-          fontSize: 13,
+          fontSize: 12,
           lineHeight: 1.8,
           color: 'rgba(245,230,211,0.75)',
           textAlign: 'center',
@@ -116,26 +116,32 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
       </div>
 
       {/* Lucky info row */}
-      <div style={{ display: 'flex', gap: 24, marginBottom: 14 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <div
             style={{
-              width: 14,
-              height: 14,
+              width: 12,
+              height: 12,
               borderRadius: '50%',
               backgroundColor: character.luckyColor,
-              boxShadow: `0 0 8px ${character.luckyColor}60`,
+              boxShadow: `0 0 6px ${character.luckyColor}60`,
             }}
           />
-          <span style={{ fontSize: 11, color: 'rgba(245,230,211,0.6)' }}>幸运色 {character.luckyColorName}</span>
+          <span style={{ fontSize: 10, color: 'rgba(245,230,211,0.6)' }}>幸运色 {character.luckyColorName}</span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-          <span style={{ fontSize: 11, color: 'rgba(245,230,211,0.6)' }}>幸运数字</span>
-          <span style={{ fontSize: 14, fontWeight: 700, color: '#d4a853' }}>{character.luckyNumber}</span>
+        <div style={{ width: 1, height: 10, background: 'rgba(212,168,83,0.2)' }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+          <span style={{ fontSize: 10, color: 'rgba(245,230,211,0.6)' }}>幸运数字</span>
+          <span style={{ fontSize: 13, fontWeight: 700, color: '#d4a853' }}>{character.luckyNumber}</span>
         </div>
       </div>
 
-      {/* Blessing */}
+      {/* Blessing with decorative lines */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, width: 260 }}>
+        <div style={{ flex: 1, height: 1, background: 'linear-gradient(to right, transparent, rgba(212,168,83,0.4))' }} />
+        <span style={{ fontSize: 9, color: 'rgba(212,168,83,0.4)', letterSpacing: '0.2em' }}>马年祝福</span>
+        <div style={{ flex: 1, height: 1, background: 'linear-gradient(to left, transparent, rgba(212,168,83,0.4))' }} />
+      </div>
       <div
         style={{
           fontSize: 16,
@@ -157,38 +163,41 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
           width: 160,
           height: 1,
           background: 'linear-gradient(to right, transparent, rgba(212,168,83,0.3), transparent)',
-          marginBottom: 16,
+          marginBottom: 18,
         }}
       />
 
-      {/* Footer area */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        {/* QR code placeholder */}
+      {/* Footer: QR code + info */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 'auto' }}>
         <div
           style={{
-            width: 52,
-            height: 52,
+            width: 56,
+            height: 56,
             backgroundColor: '#ffffff',
-            borderRadius: 4,
+            borderRadius: 6,
+            padding: 4,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: 9,
-            color: '#333',
-            textAlign: 'center',
-            lineHeight: 1.3,
           }}
         >
-          扫码
-          <br />
-          测试
+          <QRCodeSVG
+            value="https://horse-year-h5.vercel.app"
+            size={48}
+            bgColor="#ffffff"
+            fgColor="#1a0a0a"
+            level="M"
+          />
         </div>
         <div>
-          <div style={{ fontSize: 12, color: 'rgba(212,168,83,0.7)', letterSpacing: '0.1em', marginBottom: 2 }}>
+          <div style={{ fontSize: 12, color: 'rgba(212,168,83,0.7)', letterSpacing: '0.05em', marginBottom: 4 }}>
             扫码测测你的马年代表字
           </div>
-          <div style={{ fontSize: 10, color: 'rgba(212,168,83,0.35)' }}>
+          <div style={{ fontSize: 10, color: 'rgba(212,168,83,0.35)', marginBottom: 2 }}>
             2026 丙午马年
+          </div>
+          <div style={{ fontSize: 9, color: 'rgba(245,230,211,0.3)' }}>
+            小红书 @x1rry
           </div>
         </div>
       </div>
