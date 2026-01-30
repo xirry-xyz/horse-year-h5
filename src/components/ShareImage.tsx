@@ -56,10 +56,7 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
           fontSize: 16,
           fontWeight: 700,
           letterSpacing: '0.1em',
-          background: 'linear-gradient(135deg, #d4a853, #f0d68a, #d4a853)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+          color: '#d4a853',
           marginBottom: 12,
         }}
       >
@@ -72,12 +69,9 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
           fontSize: 100,
           fontWeight: 900,
           lineHeight: 1,
-          background: 'linear-gradient(180deg, #f0d68a 0%, #d4a853 40%, #b8860b 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+          color: '#d4a853',
           marginBottom: 8,
-          filter: 'drop-shadow(0 0 20px rgba(212,168,83,0.3))',
+          textShadow: '0 0 20px rgba(212,168,83,0.3)',
         }}
       >
         {character.char}
@@ -147,10 +141,7 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
           fontSize: 16,
           fontWeight: 700,
           letterSpacing: '0.15em',
-          background: 'linear-gradient(135deg, #d4a853, #f0d68a, #d4a853)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+          color: '#d4a853',
           marginBottom: 20,
         }}
       >
