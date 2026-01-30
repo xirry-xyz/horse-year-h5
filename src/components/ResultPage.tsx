@@ -41,10 +41,10 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
         <ShareImage ref={shareRef} name={name} character={character} />
       </div>
 
-      <div className="min-h-full flex flex-col items-center justify-center px-6 py-16">
+      <div className="flex flex-col items-center px-5" style={{ minHeight: '100dvh' }}>
         {/* Top decorative corners */}
-        <div className="absolute top-4 left-4 w-10 h-10 border-t-2 border-l-2 border-gold/30" />
-        <div className="absolute top-4 right-4 w-10 h-10 border-t-2 border-r-2 border-gold/30" />
+        <div className="absolute top-3 left-3 w-8 h-8 border-t-2 border-l-2 border-gold/30" />
+        <div className="absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-gold/30" />
 
         {/* Ink wash decorative background */}
         <div
@@ -54,22 +54,27 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
           }}
         />
 
+        {/* Flexible top spacer */}
+        <div className="flex-[2]" />
+
         {/* Title */}
-        <div className="mb-6 animate-fade-in">
-          <div className="text-center">
-            <span className="text-gold/50 text-xs tracking-[0.4em]">—— 2026 马年 ——</span>
-          </div>
+        <div className="animate-fade-in text-center">
+          <span className="text-gold/50 text-xs tracking-[0.4em]">—— 2026 马年 ——</span>
         </div>
 
+        <div className="flex-[0.5]" />
+
         <h2
-          className="text-2xl font-bold text-gradient-gold mb-10 tracking-wider animate-fade-in"
+          className="text-lg font-bold text-gradient-gold tracking-wider animate-fade-in"
           style={{ fontFamily: '"Noto Serif SC", serif', animationDelay: '0.2s', animationFillMode: 'backwards' }}
         >
           {name} 的马年代表字
         </h2>
 
+        <div className="flex-[1]" />
+
         {/* Main character display */}
-        <div className="relative mb-12 animate-fade-in-scale" style={{ animationDelay: '0.4s', animationFillMode: 'backwards' }}>
+        <div className="relative animate-fade-in-scale" style={{ animationDelay: '0.4s', animationFillMode: 'backwards' }}>
           {/* Glow background */}
           <div
             className="absolute inset-0 blur-3xl opacity-30"
@@ -80,7 +85,7 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
           />
           {/* Character */}
           <div
-            className="relative text-[160px] leading-none font-black animate-float"
+            className="relative text-[120px] leading-none font-black animate-float"
             style={{
               fontFamily: '"Noto Serif SC", serif',
               background: 'linear-gradient(180deg, #f0d68a 0%, #d4a853 40%, #b8860b 100%)',
@@ -94,13 +99,15 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
           </div>
         </div>
 
+        <div className="flex-[0.5]" />
+
         {/* Category badge */}
         <div
-          className="mb-10 animate-fade-in"
+          className="animate-fade-in"
           style={{ animationDelay: '0.6s', animationFillMode: 'backwards' }}
         >
           <span
-            className="inline-block px-6 py-2 rounded-full text-sm font-bold tracking-widest"
+            className="inline-block px-5 py-1.5 rounded-full text-xs font-bold tracking-widest"
             style={{
               background: 'linear-gradient(135deg, rgba(212,168,83,0.15), rgba(212,168,83,0.05))',
               border: '1px solid rgba(212,168,83,0.3)',
@@ -111,93 +118,67 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
           </span>
         </div>
 
+        <div className="flex-[1]" />
+
         {/* Description */}
         <p
-          className="text-paper/80 text-center text-lg leading-loose max-w-xs animate-fade-in"
+          className="text-paper/80 text-center text-sm leading-relaxed max-w-xs animate-fade-in"
           style={{ fontFamily: '"Noto Serif SC", serif', animationDelay: '0.7s', animationFillMode: 'backwards' }}
         >
           {character.description}
         </p>
 
-        {/* Spacer */}
-        <div className="h-10" />
+        <div className="flex-[1]" />
 
-        {/* Lucky info cards */}
+        {/* Lucky info row - compact inline */}
         <div
-          className="w-full max-w-xs animate-fade-in"
+          className="flex items-center gap-6 animate-fade-in"
           style={{ animationDelay: '0.8s', animationFillMode: 'backwards' }}
         >
-          <div className="grid grid-cols-2 gap-5">
-            {/* Lucky color */}
-            <div className="flex flex-col items-center py-6 px-3 rounded-xl bg-ink/40 border border-gold/10">
-              <span className="text-gold/50 text-xs mb-3 tracking-wider">幸运色</span>
-              <div
-                className="w-10 h-10 rounded-full mb-3 shadow-lg"
-                style={{
-                  backgroundColor: character.luckyColor,
-                  boxShadow: `0 0 15px ${character.luckyColor}40`,
-                }}
-              />
-              <span className="text-paper/70 text-sm">{character.luckyColorName}</span>
-            </div>
-
-            {/* Lucky number */}
-            <div className="flex flex-col items-center py-6 px-3 rounded-xl bg-ink/40 border border-gold/10">
-              <span className="text-gold/50 text-xs mb-3 tracking-wider">幸运数字</span>
-              <div
-                className="text-4xl font-black text-gradient-gold mb-1"
-                style={{ fontFamily: '"Noto Serif SC", serif' }}
-              >
-                {character.luckyNumber}
-              </div>
-            </div>
+          <div className="flex items-center gap-2">
+            <div
+              className="w-5 h-5 rounded-full"
+              style={{
+                backgroundColor: character.luckyColor,
+                boxShadow: `0 0 8px ${character.luckyColor}40`,
+              }}
+            />
+            <span className="text-paper/60 text-xs">幸运色 {character.luckyColorName}</span>
+          </div>
+          <div className="w-px h-3 bg-gold/20" />
+          <div className="flex items-center gap-1.5">
+            <span className="text-paper/60 text-xs">幸运数字</span>
+            <span className="text-gold font-bold text-sm">{character.luckyNumber}</span>
           </div>
         </div>
 
-        {/* Spacer */}
-        <div className="h-12" />
+        <div className="flex-[1]" />
 
         {/* Blessing */}
         <div
           className="w-full max-w-xs text-center animate-fade-in"
           style={{ animationDelay: '0.9s', animationFillMode: 'backwards' }}
         >
-          <div className="flex items-center justify-center gap-4 mb-5">
+          <div className="flex items-center justify-center gap-3 mb-2">
             <div className="flex-1 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(212,168,83,0.4))' }} />
-            <span className="text-gold/40 text-xs tracking-widest shrink-0">马年祝福</span>
+            <span className="text-gold/40 text-[10px] tracking-widest shrink-0">马年祝福</span>
             <div className="flex-1 h-px" style={{ background: 'linear-gradient(to left, transparent, rgba(212,168,83,0.4))' }} />
           </div>
           <p
-            className="text-2xl font-bold text-gradient-gold tracking-wider"
+            className="text-lg font-bold text-gradient-gold tracking-wider"
             style={{ fontFamily: '"Noto Serif SC", serif' }}
           >
             {character.blessing}
           </p>
         </div>
 
-        {/* Spacer */}
-        <div className="h-14" />
-
-        {/* Divider */}
-        <div className="w-48 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-
-        {/* Spacer */}
-        <div className="h-10" />
-
-        {/* Share section */}
-        <div className="text-center">
-          <p className="text-gold/60 text-sm mb-2 tracking-wider">测测你的马年代表字</p>
-          <p className="text-gold/30 text-xs">长按保存图片分享给好友</p>
-        </div>
-
-        {/* Spacer */}
-        <div className="h-8" />
+        <div className="flex-[1.5]" />
 
         {/* Buttons */}
-        <div className="w-full max-w-xs space-y-4">
+        <div className="w-full max-w-xs space-y-2.5">
           <button
             onClick={handleSave}
-            className="w-full py-4 rounded-xl font-bold text-lg tracking-widest transition-all duration-300 active:scale-[0.98]"
+            className="w-full py-3.5 rounded-xl font-bold text-base tracking-widest transition-all duration-300 active:scale-[0.98]"
             style={{
               background: 'linear-gradient(135deg, #d4a853, #f0d68a, #d4a853)',
               color: '#1a0a0a',
@@ -209,7 +190,7 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
           </button>
           <button
             onClick={onRestart}
-            className="w-full py-4 rounded-xl font-bold text-base tracking-widest border border-gold/30 text-gold/70 transition-all duration-300 hover:border-gold/50 hover:text-gold active:scale-[0.98]"
+            className="w-full py-3.5 rounded-xl font-bold text-sm tracking-widest border border-gold/30 text-gold/70 transition-all duration-300 hover:border-gold/50 hover:text-gold active:scale-[0.98]"
             style={{
               background: 'rgba(44, 24, 16, 0.6)',
               fontFamily: '"Noto Serif SC", serif',
@@ -219,11 +200,10 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
           </button>
         </div>
 
-        {/* Spacer */}
-        <div className="h-10" />
+        <div className="flex-[1]" />
 
         {/* Bottom decorative */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 pb-4">
           <div className="w-6 h-px bg-gold/20" />
           <span className="text-gold/20 text-xs tracking-widest">2026 丙午马年</span>
           <div className="w-6 h-px bg-gold/20" />
