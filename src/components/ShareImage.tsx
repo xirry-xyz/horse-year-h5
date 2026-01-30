@@ -46,107 +46,117 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
         }}
       />
 
-      {/* Year tag */}
-      <div style={{ fontSize: 10, letterSpacing: '0.4em', color: 'rgba(212,168,83,0.5)', marginBottom: 6 }}>
-        —— 2026 马年 ——
-      </div>
-
-      {/* Title */}
+      {/* Main content area - vertically centered */}
       <div
         style={{
-          fontSize: 16,
-          fontWeight: 700,
-          letterSpacing: '0.1em',
-          color: '#d4a853',
-          marginBottom: 12,
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        {name} 的马年代表字
-      </div>
-
-      {/* Main character */}
-      <div
-        style={{
-          fontSize: 100,
-          fontWeight: 900,
-          lineHeight: 1,
-          color: '#d4a853',
-          marginBottom: 8,
-          textShadow: '0 0 20px rgba(212,168,83,0.3)',
-        }}
-      >
-        {character.char}
-      </div>
-
-      {/* Category badge */}
-      <div
-        style={{
-          display: 'inline-block',
-          padding: '3px 14px',
-          borderRadius: 20,
-          fontSize: 11,
-          fontWeight: 700,
-          letterSpacing: '0.2em',
-          background: 'rgba(212,168,83,0.1)',
-          border: '1px solid rgba(212,168,83,0.3)',
-          color: '#d4a853',
-          marginBottom: 14,
-        }}
-      >
-        {character.categoryLabel}
-      </div>
-
-      {/* Description */}
-      <div
-        style={{
-          fontSize: 12,
-          lineHeight: 1.8,
-          color: 'rgba(245,230,211,0.75)',
-          textAlign: 'center',
-          maxWidth: 280,
-          marginBottom: 14,
-        }}
-      >
-        {character.description}
-      </div>
-
-      {/* Lucky info row */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 14 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-          <div
-            style={{
-              width: 12,
-              height: 12,
-              borderRadius: '50%',
-              backgroundColor: character.luckyColor,
-              boxShadow: `0 0 6px ${character.luckyColor}60`,
-            }}
-          />
-          <span style={{ fontSize: 10, color: 'rgba(245,230,211,0.6)' }}>幸运色 {character.luckyColorName}</span>
+        {/* Year tag */}
+        <div style={{ fontSize: 10, letterSpacing: '0.4em', color: 'rgba(212,168,83,0.5)', marginBottom: 6 }}>
+          —— 2026 马年 ——
         </div>
-        <div style={{ width: 1, height: 10, background: 'rgba(212,168,83,0.2)' }} />
-        <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
-          <span style={{ fontSize: 10, color: 'rgba(245,230,211,0.6)' }}>幸运数字</span>
-          <span style={{ fontSize: 13, fontWeight: 700, color: '#d4a853' }}>{character.luckyNumber}</span>
-        </div>
-      </div>
 
-      {/* Blessing with decorative lines */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, width: 260 }}>
-        <div style={{ flex: 1, height: 1, background: 'linear-gradient(to right, transparent, rgba(212,168,83,0.4))' }} />
-        <span style={{ fontSize: 9, color: 'rgba(212,168,83,0.4)', letterSpacing: '0.2em' }}>马年祝福</span>
-        <div style={{ flex: 1, height: 1, background: 'linear-gradient(to left, transparent, rgba(212,168,83,0.4))' }} />
-      </div>
-      <div
-        style={{
-          fontSize: 16,
-          fontWeight: 700,
-          letterSpacing: '0.15em',
-          color: '#d4a853',
-          marginBottom: 20,
-        }}
-      >
-        {character.blessing}
+        {/* Title */}
+        <div
+          style={{
+            fontSize: 16,
+            fontWeight: 700,
+            letterSpacing: '0.1em',
+            color: '#d4a853',
+            marginBottom: 12,
+          }}
+        >
+          {name} 的马年代表字
+        </div>
+
+        {/* Main character */}
+        <div
+          style={{
+            fontSize: 100,
+            fontWeight: 900,
+            lineHeight: 1,
+            color: '#d4a853',
+            marginBottom: 8,
+            textShadow: '0 0 20px rgba(212,168,83,0.3)',
+          }}
+        >
+          {character.char}
+        </div>
+
+        {/* Category badge */}
+        <div
+          style={{
+            display: 'inline-block',
+            padding: '3px 14px',
+            borderRadius: 9999,
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: '0.2em',
+            background: 'rgba(212,168,83,0.1)',
+            border: '1px solid rgba(212,168,83,0.3)',
+            color: '#d4a853',
+            marginBottom: 14,
+          }}
+        >
+          {character.categoryLabel}
+        </div>
+
+        {/* Description */}
+        <div
+          style={{
+            fontSize: 12,
+            lineHeight: 1.8,
+            color: 'rgba(245,230,211,0.75)',
+            textAlign: 'center',
+            maxWidth: 280,
+            marginBottom: 14,
+          }}
+        >
+          {character.description}
+        </div>
+
+        {/* Lucky info row */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 14 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div
+              style={{
+                width: 12,
+                height: 12,
+                borderRadius: '50%',
+                backgroundColor: character.luckyColor,
+                boxShadow: `0 0 6px ${character.luckyColor}60`,
+              }}
+            />
+            <span style={{ fontSize: 10, color: 'rgba(245,230,211,0.6)' }}>幸运色 {character.luckyColorName}</span>
+          </div>
+          <div style={{ width: 1, height: 10, background: 'rgba(212,168,83,0.2)' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+            <span style={{ fontSize: 10, color: 'rgba(245,230,211,0.6)' }}>幸运数字</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#d4a853' }}>{character.luckyNumber}</span>
+          </div>
+        </div>
+
+        {/* Blessing with decorative lines */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, width: 260 }}>
+          <div style={{ flex: 1, height: 1, background: 'linear-gradient(to right, transparent, rgba(212,168,83,0.4))' }} />
+          <span style={{ fontSize: 9, color: 'rgba(212,168,83,0.4)', letterSpacing: '0.2em' }}>马年祝福</span>
+          <div style={{ flex: 1, height: 1, background: 'linear-gradient(to left, transparent, rgba(212,168,83,0.4))' }} />
+        </div>
+        <div
+          style={{
+            fontSize: 16,
+            fontWeight: 700,
+            letterSpacing: '0.15em',
+            color: '#d4a853',
+          }}
+        >
+          {character.blessing}
+        </div>
       </div>
 
       {/* Divider */}

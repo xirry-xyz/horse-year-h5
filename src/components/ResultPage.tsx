@@ -105,10 +105,11 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
           style={{ animationDelay: '0.6s', animationFillMode: 'backwards' }}
         >
           <span
-            className="inline-block px-5 py-1.5 rounded-full text-xs font-bold tracking-widest"
+            className="inline-block px-5 py-1.5 text-xs font-bold tracking-widest"
             style={{
               background: 'linear-gradient(135deg, rgba(212,168,83,0.15), rgba(212,168,83,0.05))',
               border: '1px solid rgba(212,168,83,0.3)',
+              borderRadius: 9999,
               color: '#d4a853',
             }}
           >
