@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import type { CharacterData } from '../data/characters';
 import ShareImage from './ShareImage';
 
@@ -10,6 +10,7 @@ interface ResultPageProps {
 
 export default function ResultPage({ name, character, onRestart }: ResultPageProps) {
   const shareRef = useRef<HTMLDivElement>(null);
+  const [shareImageUrl, setShareImageUrl] = useState<string | null>(null);
 
   const handleSave = async () => {
     if (!shareRef.current) return;
@@ -20,10 +21,7 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
         useCORS: true,
         backgroundColor: '#1a0a0a',
       });
-      const link = document.createElement('a');
-      link.download = `马年代表字_${name}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
+      setShareImageUrl(canvas.toDataURL('image/png'));
     } catch (err) {
       console.error('Failed to generate image:', err);
     }
@@ -209,6 +207,27 @@ export default function ResultPage({ name, character, onRestart }: ResultPagePro
           <div className="w-6 h-px bg-gold/20" />
         </div>
       </div>
+
+      {/* Full-screen overlay for long-press saving */}
+      {shareImageUrl && (
+        <div
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/80"
+          onClick={() => setShareImageUrl(null)}
+        >
+          <p
+            className="text-paper/80 text-sm mb-4 tracking-wider"
+            style={{ fontFamily: '"Noto Serif SC", serif' }}
+          >
+            长按图片保存到相册
+          </p>
+          <img
+            src={shareImageUrl}
+            alt="分享图"
+            className="w-[80vw] max-w-[375px] rounded-lg shadow-2xl"
+          />
+          <p className="text-paper/40 text-xs mt-4">点击任意处关闭</p>
+        </div>
+      )}
     </div>
   );
 }
