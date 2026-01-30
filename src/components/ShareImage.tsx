@@ -186,9 +186,9 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
             扫码测测你的马年代表字
           </div>
           <div style={{ fontSize: 10, color: 'rgba(212,168,83,0.35)', marginBottom: 2 }}>
-            2026 丙午马年
+            更多有趣应用请关注
           </div>
-          <img src={x1rrySvg} alt="小红书 @x1rry" style={{ height: 18, opacity: 0.4 }} />
+          <img src={x1rrySvg} alt="小红书 @x1rry" style={{ height: 18, opacity: 0.6 }} />
         </div>
       </div>
     </div>
