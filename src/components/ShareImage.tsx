@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import type { CharacterData } from '../data/characters';
+import x1rrySvg from '../assets/x1rry.svg';
 
 interface ShareImageProps {
   name: string;
@@ -187,9 +188,7 @@ const ShareImage = forwardRef<HTMLDivElement, ShareImageProps>(({ name, characte
           <div style={{ fontSize: 10, color: 'rgba(212,168,83,0.35)', marginBottom: 2 }}>
             2026 丙午马年
           </div>
-          <div style={{ fontSize: 9, color: 'rgba(245,230,211,0.3)' }}>
-            小红书 @x1rry
-          </div>
+          <img src={x1rrySvg} alt="小红书 @x1rry" style={{ height: 18, opacity: 0.4 }} />
         </div>
       </div>
     </div>
